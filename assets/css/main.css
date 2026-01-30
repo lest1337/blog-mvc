@@ -1,0 +1,210 @@
+/* =========================
+   BASE
+   ========================= */
+body {
+    background-color: #ececec;
+    color: #222;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    margin: 0;
+    padding: 200px;
+    padding-top: 40px;
+}
+
+/* =========================
+   FULL NAVBAR BAR
+   ========================= */
+#navbar {
+    background-color: #2b4a9e;
+    margin: -30px -30px 0 -30px; /* stretch to full width */
+    padding: 0;
+}
+
+/* =========================
+   NAV LIST
+   ========================= */
+#navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+/* =========================
+   NAV ITEMS
+   ========================= */
+#navbar li {
+    margin: 0;
+}
+
+/* =========================
+   NAV LINKS (PART OF BAR)
+   ========================= */
+#navbar a {
+    display: block;
+    padding: 14px 20px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 15px;
+    border-right: 1px solid rgba(255,255,255,0.25);
+}
+
+/* =========================
+   HOVER / ACTIVE FEEL
+   ========================= */
+#navbar a:hover {
+    background-color: #1f3675;
+}
+
+/* =========================
+   SEPARATOR
+   ========================= */
+hr {
+    border: none;
+    border-top: 1px solid #ccc;
+    margin: 15px 0 25px 0;
+}
+
+/* =========================
+   LINKS
+   ========================= */
+a {
+    color: #2b4a9e;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* =========================
+   POSTS LIST
+   ========================= */
+.post {
+    background-color: #fff;
+    border: 1px solid #bbb;
+    padding: 15px;
+    margin-bottom: 18px;
+    border-radius: 4px;
+}
+
+.post a {
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.post p {
+    margin: 10px 0;
+    line-height: 1.4;
+}
+
+.post i {
+    font-size: 13px;
+    color: #666;
+}
+
+/* =========================
+   SINGLE POST
+   ========================= */
+#post {
+    background-color: #fff;
+    border: 1px solid #aaa;
+    padding: 20px;
+    margin-bottom: 25px;
+    border-radius: 4px;
+}
+
+#post h2 {
+    margin-top: 0;
+    color: #2b4a9e;
+}
+
+#post i {
+    font-size: 13px;
+    color: #777;
+}
+
+/* =========================
+   COMMENTS
+   ========================= */
+#comments {
+    background-color: #f5f5f5;
+    border: 1px solid #bbb;
+    padding: 15px;
+    border-radius: 4px;
+}
+
+#comment {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 12px;
+    border-radius: 4px;
+}
+
+#comment h3 {
+    margin: 0 0 6px 0;
+    font-size: 14px;
+    color: #2b4a9e;
+}
+
+/* =========================
+   BACK LINK
+   ========================= */
+
+#back {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 6px 10px;
+    background-color: #e4e4e4;
+    border: 1px solid #aaa;
+    border-radius: 3px;
+}
+
+/* =========================
+   ADD COMMENT BOX
+   ========================= */
+#addComment {
+    background-color: #f5f5f5;
+    border: 1px solid #bbb;
+    padding: 15px;
+    margin-top: 25px;
+    border-radius: 4px;
+}
+
+#addComment h3 {
+    margin: 0 0 10px 0;
+    font-size: 16px;
+    color: #2b4a9e;
+}
+
+#addComment input[type="text"] {
+    width: 100%;
+    height: 48px;
+
+    text-box-edge: inherit;
+
+    box-sizing: border-box;
+    padding: 8px;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    border: 1px solid #999;
+    border-radius: 3px;
+    background-color: #fff;
+    color: #222;
+}
+
+#addComment input[type="text"]:focus {
+    outline: none;
+    border-color: #2b4a9e;
+    background-color: #fafafa;
+}
+
+/* =========================
+   FOOTER
+   ========================= */
+footer {
+    width: 100%;
+    color: #2b4a9e;
+    text-align: right;
+}
