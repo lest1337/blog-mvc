@@ -19,4 +19,11 @@ class Utilisateur {
 
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
+
+    function getUserByMail($email) {
+        $stmt = $this->pdo->prepare("SELECT USER_ID, USERNAME, EMAIL, PSSWRD FROM USERS WHERE EMAIL = :email");
+        $stmt->execute([":email" => $email]);
+
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
 }
