@@ -1,5 +1,7 @@
 <head>
     <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="icon" herf="assets/images/CSB.webp">
+    <title>Le CSBlog</title>
 </head>
 <!-- Navbar -->
 <div id="navbar">
