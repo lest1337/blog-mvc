@@ -1,4 +1,4 @@
-<div id="">
+<div>
     <div id="post">
         <h2> <?= $post["TITLE"] ?> </h2>
         <i> <?= $post["PUBLISH_DATE"] ?> </i>

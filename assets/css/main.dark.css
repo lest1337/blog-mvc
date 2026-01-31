@@ -4,8 +4,8 @@
 
 body {
     margin: 0;
-    background-color: #f6f6f6;
-    color: #232629;
+    background-color: #0d1117;
+    color: #e6edf3;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
     font-size: 15px;
 }
@@ -20,8 +20,8 @@ a:hover {
 }
 
 #navbar {
-    background-color: #ffffff;
-    border-bottom: 1px solid #d6d9dc;
+    background-color: #161b22;
+    border-bottom: 1px solid #30363d;
 }
 
 #navbar ul {
@@ -36,15 +36,15 @@ a:hover {
 }
 
 #navbar a {
-    color: #525960;
+    color: #c9d1d9;
     font-size: 14px;
     padding: 6px 8px;
-    border-radius: 3px;
+    border-radius: 4px;
 }
 
 #navbar a:hover {
-    background-color: #f0f0f0;
-    color: #232629;
+    background-color: #21262d;
+    color: #ffffff;
 }
 
 hr {
@@ -57,6 +57,7 @@ hr {
     padding: 0 16px;
     font-size: 32px;
     font-weight: 600;
+    color: #e6edf3;
 }
 
 .post,
@@ -70,9 +71,9 @@ hr {
 }
 
 .post {
-    background-color: #ffffff;
-    border: 1px solid #d6d9dc;
-    border-radius: 4px;
+    background-color: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 6px;
     padding: 16px;
 }
 
@@ -89,13 +90,13 @@ hr {
 
 .post i {
     font-size: 13px;
-    color: #6a737c;
+    color: #8b949e;
 }
 
 #post {
-    background-color: #ffffff;
-    border: 1px solid #d6d9dc;
-    border-radius: 4px;
+    background-color: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 6px;
     padding: 20px;
 }
 
@@ -107,19 +108,19 @@ hr {
 
 #post i {
     font-size: 13px;
-    color: #6a737c;
+    color: #8b949e;
 }
 
 #comments {
-    background-color: #ffffff;
-    border: 1px solid #d6d9dc;
-    border-radius: 4px;
+    background-color: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 6px;
     padding: 16px;
 }
 
 #comment {
     padding: 12px 0;
-    border-top: 1px solid #e4e6e8;
+    border-top: 1px solid #30363d;
 }
 
 #comment:first-child {
@@ -139,9 +140,9 @@ hr {
 }
 
 #addComment {
-    background-color: #ffffff;
-    border: 1px solid #d6d9dc;
-    border-radius: 4px;
+    background-color: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 6px;
     padding: 16px;
 }
 
@@ -155,14 +156,16 @@ hr {
     width: 100%;
     padding: 10px;
     font-size: 14px;
-    border: 1px solid #babfc4;
-    border-radius: 4px;
+    background-color: #0d1117;
+    color: #e6edf3;
+    border: 1px solid #30363d;
+    border-radius: 6px;
 }
 
 #addComment input[type="text"]:focus {
     outline: none;
     border-color: #1a9ca7;
-    box-shadow: 0 0 0 2px rgba(26,156,167,0.15);
+    box-shadow: 0 0 0 2px rgba(26,156,167,0.25);
 }
 
 div > h1 {
@@ -174,9 +177,9 @@ div > h1 {
 }
 
 #register {
-    background-color: #ffffff;
-    border: 1px solid #d6d9dc;
-    border-radius: 4px;
+    background-color: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 6px;
     padding: 24px;
     display: flex;
     flex-direction: column;
@@ -187,14 +190,16 @@ div > h1 {
     width: 100%;
     padding: 11px;
     font-size: 14px;
-    border: 1px solid #babfc4;
-    border-radius: 4px;
+    background-color: #0d1117;
+    color: #e6edf3;
+    border: 1px solid #30363d;
+    border-radius: 6px;
 }
 
 #register input:focus {
     outline: none;
     border-color: #1a9ca7;
-    box-shadow: 0 0 0 2px rgba(26,156,167,0.15);
+    box-shadow: 0 0 0 2px rgba(26,156,167,0.25);
 }
 
 a[href*="default"] {
@@ -206,8 +211,8 @@ a[href*="default"] {
 }
 
 #footer {
-    background-color: #ffffff;
-    border-top: 1px solid #d6d9dc;
+    background-color: #161b22;
+    border-top: 1px solid #30363d;
     margin-top: 40px;
 }
 
@@ -219,7 +224,7 @@ a[href*="default"] {
     align-items: center;
     justify-content: space-between;
     font-size: 13px;
-    color: #6a737c;
+    color: #8b949e;
 }
 
 #footer nav {
@@ -228,7 +233,7 @@ a[href*="default"] {
 }
 
 #footer a {
-    color: #6a737c;
+    color: #8b949e;
 }
 
 #footer a:hover {
