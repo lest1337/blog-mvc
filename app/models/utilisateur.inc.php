@@ -10,7 +10,7 @@ class Utilisateur {
         $stmt->execute([
             ":username" => $username,
             ":email" => $email,
-            ":psswd" => $psswd ]);
+            ":psswd" => password_hash($psswd, CRYPT_SHA256) ]);
     }
 
     function getUser($id) {

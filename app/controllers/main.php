@@ -2,7 +2,10 @@
 function rout($action) {
     $actions = array(
         "default" => "home.php",
-        "post" => "post.php"
+        "post" => "post.php",
+        "register" => "register.php",
+        "login" => "login.php",
+        "profil" => "profil.php"
     );
 
     if (array_key_exists($action, $actions)) {

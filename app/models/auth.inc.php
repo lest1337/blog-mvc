@@ -24,7 +24,7 @@ function isLoggedOn() {
         $userModel = new Utilisateur();
         $user = $userModel->getUserByMail($_SESSION["email"]);
 
-        if ($user["PASSWRD"] == $_SESSION["password"] && $user["EMAIL"] == $_SESSION["email"]) {
+        if (password_verify($user["PSSWRD"], $_SESSION["password"]) && $user["EMAIL"] == $_SESSION["email"]) {
             $res = true;
         }
     }
