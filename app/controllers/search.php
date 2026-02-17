@@ -13,5 +13,8 @@ if (!empty($query)) {
 }
 
 require_once "app/views/header.view.php";
-require_once "app/views/home.view.php";
-require_once "app/views/footer.view.php";
+?>
+<main>
+<?php require_once "app/views/home.view.php"; ?>
+</main>
+<?php require_once "app/views/footer.view.php"; ?>

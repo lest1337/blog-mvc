@@ -32,5 +32,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 }
 
 require_once "app/views/header.view.php";
-require_once "app/views/login.view.php";
-require_once "app/views/footer.view.php";
+?>
+<main>
+<?php require_once "app/views/login.view.php"; ?>
+</main>
+<?php require_once "app/views/footer.view.php"; ?>
