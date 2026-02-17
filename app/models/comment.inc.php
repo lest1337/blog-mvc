@@ -11,7 +11,7 @@ class Comment {
     }
 
     function addComment($postId, $userId, $content) {
-        $stmt = $this->pdo->prepare("INSERT INTO COMMENTS (POST_ID, USER_ID, CONTENT) VALUES (:postId, :userId, :Content)");
+        $stmt = $this->pdo->prepare("INSERT INTO COMMENTS (POST_ID, USER_ID, CONTENT) VALUES (:postId, :userId, :content)");
         $stmt->execute([
             ":postId" => $postId,
             ":userId" => $userId,

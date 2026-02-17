@@ -33,4 +33,11 @@ class Utilisateur {
 
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
+
+    function getUserById($id) {
+        $stmt = $this->pdo->prepare("SELECT USER_ID, USERNAME, EMAIL FROM USERS WHERE USER_ID = :id");
+        $stmt->execute([":id" => $id]);
+
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
 }
