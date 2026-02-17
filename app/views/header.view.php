@@ -9,7 +9,7 @@ $loggedIn = isLoggedOn();
 ?>
 <head>
     <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="icon" herf="assets/images/CSB.ico">
+    <link rel="icon" href="assets/images/csb.png">
     <title>Le CSBlog</title>
 </head>
 <!-- Navbar -->
