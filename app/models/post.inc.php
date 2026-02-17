@@ -20,7 +20,7 @@ class Post {
     }
 
     function getComments($postId) {
-        $stmt = $this->pdo->prepare("SELECT c.CONTENT, c.USER_ID, c.POST_ID, u.USERNAME FROM COMMENTS c JOIN USERS u ON c.USER_ID = u.USER_ID WHERE c.POST_ID = :postId");
+        $stmt = $this->pdo->prepare("SELECT c.CONTENT, c.USER_ID, c.POST_ID, c.COMMENT_ID, u.USERNAME FROM COMMENTS c JOIN USERS u ON c.USER_ID = u.USER_ID WHERE c.POST_ID = :postId");
         $stmt->execute([":postId" => $postId]);
         
         return $stmt->fetchAll(PDO::FETCH_ASSOC);

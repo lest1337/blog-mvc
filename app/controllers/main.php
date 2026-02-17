@@ -7,6 +7,8 @@ function rout($action) {
         "login" => "login.php",
         "logout" => "logout.php",
         "search" => "search.php",
+        "edit_comment" => "edit_comment.php",
+        "delete_comment" => "delete_comment.php",
         "profil" => "profil.php"
     );
 
