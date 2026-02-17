@@ -5,6 +5,7 @@ function rout($action) {
         "post" => "post.php",
         "register" => "register.php",
         "login" => "login.php",
+        "logout" => "logout.php",
         "profil" => "profil.php"
     );
 
