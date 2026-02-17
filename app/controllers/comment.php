@@ -9,6 +9,7 @@ if (session_status() === PHP_SESSION_NONE) {
 
 $error = null;
 $loggedIn = isLoggedOn();
+$currentUserId = $_SESSION["userId"] ?? null;
 
 if ($loggedIn && $_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["comment_content"]) && isset($_GET["id"])) {
     $commentModel = new Comment();
