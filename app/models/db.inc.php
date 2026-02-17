@@ -2,8 +2,8 @@
 
 function getPdo()
 {
-    $USERNAME = "admin";
-    $PASSWORD = "root";
+    $USERNAME = "blog_user";
+    $PASSWORD = "password";
     $DBNAME = "blog";
     $HOST = "127.0.0.1";
 

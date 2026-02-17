@@ -4,6 +4,8 @@
 
 <div id="addComment">
     <h3>Ajouter un commentaire</h3>
-    <input type="text" name="comment_content" placeholder="Ecrivez votre commentaire ici">
-    <button type="submit" hidden></button>
+    <form method="get">
+        <input type="text" name="comment_content" placeholder="Ecrivez votre commentaire ici">
+        <button type="submit" hidden></button>
+    </form>
 </div>

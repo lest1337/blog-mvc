@@ -1,5 +1,6 @@
 <?php
 include_once "db.inc.php";
+include_once "auth.inc.php";
 
 class Utilisateur {
     private PDO $pdo;
@@ -11,6 +12,12 @@ class Utilisateur {
             ":username" => $username,
             ":email" => $email,
             ":psswd" => password_hash($psswd, CRYPT_SHA256) ]);
+    }
+
+    function getCurrentUserId() {
+        if (isLoggedOn()) {
+            return $_SESSION["userId"];
+        }
     }
 
     function getUser($id) {
