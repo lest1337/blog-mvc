@@ -1,7 +1,7 @@
-<div>
+<div id="login-view">
     <h1>Se connecter</h1>
     <?php if (isset($error)): ?>
-        <p style="color: red;"><?= htmlspecialchars($error) ?></p>
+        <p><?= htmlspecialchars($error) ?></p>
     <?php endif; ?>
     <form action="index.php?action=login" method="post">
         <div id="register">
