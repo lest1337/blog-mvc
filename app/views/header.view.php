@@ -14,15 +14,21 @@ $loggedIn = isLoggedOn();
 </head>
 <!-- Navbar -->
 <div id="navbar">
-     <ul>
-    <li><a href="./?action=default"> Home </a></li>
-    <?php if (!$loggedIn): ?>
-    <li><a href="./?action=register"> Register </a></li>
-    <li><a href="./?action=login"> Log In </a></li>
-    <?php else: ?>
-    <li><a href="./?action=logout"> Log Out (<?= htmlspecialchars($_SESSION["username"] ?? "") ?>)</a></li>
-    <?php endif; ?>
-    <li><a href="./?action=aboutus"> About us </a></li>
- </ul>
+    <div class="navbar-content">
+        <ul class="nav-links">
+            <li><a href="./?action=default">Home</a></li>
+            <?php if (!$loggedIn): ?>
+            <li><a href="./?action=register">Register</a></li>
+            <li><a href="./?action=login">Log In</a></li>
+            <?php else: ?>
+            <li><a href="./?action=logout">Log Out (<?= htmlspecialchars($_SESSION["username"] ?? "") ?>)</a></li>
+            <?php endif; ?>
+            <li><a href="./?action=aboutus">About us</a></li>
+        </ul>
+        <form class="search-form" action="./?action=search" method="get">
+            <input type="hidden" name="action" value="search">
+            <input type="text" name="q" placeholder="Search posts...">
+        </form>
+    </div>
 </div>
 <hr>

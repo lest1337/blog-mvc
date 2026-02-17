@@ -25,4 +25,11 @@ class Post {
         
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    function search($query) {
+        $stmt = $this->pdo->prepare("SELECT POST_ID, TITLE, CONTENT, PUBLISH_DATE FROM POSTS WHERE TITLE LIKE :query OR CONTENT LIKE :query");
+        $stmt->execute([":query" => "%" . $query . "%"]);
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }

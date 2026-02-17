@@ -26,15 +26,23 @@ a:hover {
     border-bottom: 1px solid #262626;
 }
 
-#navbar ul {
+#navbar .navbar-content {
     max-width: 900px;
     margin: 0 auto;
     padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 44px;
+}
+
+#navbar .nav-links {
     list-style: none;
     display: flex;
     align-items: center;
-    height: 44px;
     gap: 24px;
+    margin: 0;
+    padding: 0;
 }
 
 #navbar a {
@@ -48,6 +56,30 @@ a:hover {
     color: #4ade80;
     border-bottom-color: #4ade80;
     text-decoration: none;
+}
+
+.search-form {
+    display: flex;
+    gap: 8px;
+}
+
+.search-form input[type="text"] {
+    padding: 6px 12px;
+    font-size: 12px;
+    font-family: inherit;
+    color: #e5e5e5;
+    background-color: #0d0d0d;
+    border: 1px solid #333333;
+    outline: none;
+    width: 200px;
+}
+
+.search-form input[type="text"]:focus {
+    border-color: #4ade80;
+}
+
+.search-form input[type="text"]::placeholder {
+    color: #525252;
 }
 
 hr {
@@ -79,6 +111,20 @@ hr {
     border: 1px solid #262626;
     padding: 20px;
     margin-bottom: 16px;
+}
+
+#search-results,
+.no-results {
+    max-width: 900px;
+    margin: 0 auto 20px auto;
+    padding: 0 20px;
+    font-size: 14px;
+    color: #737373;
+}
+
+.no-results {
+    text-align: center;
+    padding: 40px 20px;
 }
 
 .post a {
