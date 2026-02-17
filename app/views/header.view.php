@@ -1,6 +1,6 @@
 <head>
     <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="icon" herf="assets/images/CSB.webp">
+    <link rel="icon" herf="assets/images/CSB.ico">
     <title>Le CSBlog</title>
 </head>
 <!-- Navbar -->

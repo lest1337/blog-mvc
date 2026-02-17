@@ -14,5 +14,4 @@ if (isset($_GET["id"])) {
 
 require_once "app/views/header.view.php";
 require_once "app/views/post.view.php"; 
-require_once "app/views/comment.view.php";
 require_once "app/views/footer.view.php";
