@@ -1,12 +1,3 @@
--- USERS
-insert into USERS (USERNAME, EMAIL, PSSWRD) values
-('alice', 'alice@example.com', 'pass_alice'),
-('bob', 'bob@example.com', 'pass_bob'),
-('charlie', 'charlie@example.com', 'pass_charlie'),
-('diana', 'diana@example.com', 'pass_diana'),
-('ethan', 'ethan@example.com', 'pass_ethan'),
-('flora', 'flora@example.com', 'pass_flora');
-
 -- POSTS (longer 2–3 line content)
 insert into POSTS (TITLE, CONTENT) values
 ('Learning SQL Basics',
