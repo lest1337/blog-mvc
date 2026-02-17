@@ -1,4 +1,4 @@
-drop database blog;
+drop database if exists blog;
 create database if not exists blog;
 use blog;
 
