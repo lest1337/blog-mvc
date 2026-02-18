@@ -1,5 +1,7 @@
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 :root {
@@ -75,16 +77,17 @@ a:hover {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 44px;
+    height: 40px;
 }
 
 #navbar .nav-links {
     list-style: none;
     display: flex;
     align-items: center;
-    gap: 24px;
+    gap: 16px;
     margin: 0;
     padding: 0;
+    height: 40px;
 }
 
 #navbar a {
@@ -103,19 +106,21 @@ a:hover {
 #navbar .nav-right {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 8px;
 }
 
 .theme-toggle {
     background: none;
     border: 1px solid var(--border-input);
     color: var(--text-secondary);
-    padding: 4px 8px;
+    padding: 0 8px;
     font-size: 11px;
     font-family: inherit;
     cursor: pointer;
     text-transform: uppercase;
     letter-spacing: 1px;
+    height: 24px;
+    box-sizing: border-box;
 }
 
 .theme-toggle:hover {
@@ -125,18 +130,22 @@ a:hover {
 
 .search-form {
     display: flex;
-    gap: 8px;
+    align-items: center;
+    gap: 0;
 }
 
 .search-form input[type="text"] {
-    padding: 6px 12px;
+    padding: 0 8px;
     font-size: 12px;
     font-family: inherit;
     color: var(--text-primary);
     background-color: var(--bg-input);
     border: 1px solid var(--border-input);
+    border-right: none;
     outline: none;
-    width: 200px;
+    width: 140px;
+    height: 24px;
+    box-sizing: border-box;
 }
 
 .search-form input[type="text"]:focus {

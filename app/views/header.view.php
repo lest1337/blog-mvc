@@ -29,6 +29,7 @@ $loggedIn = isLoggedOn();
             <li><a href="./?action=register">Register</a></li>
             <li><a href="./?action=login">Log In</a></li>
             <?php else: ?>
+            <li><a href="./?action=profil">Profil</a></li>
             <li><a href="./?action=logout">Log Out (<?= htmlspecialchars($_SESSION["username"] ?? "") ?>)</a></li>
             <?php endif; ?>
             <li><a href="./?action=aboutus">About us</a></li>

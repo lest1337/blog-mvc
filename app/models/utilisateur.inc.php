@@ -40,4 +40,21 @@ class Utilisateur {
 
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
+
+    function updateUser($id, $username, $email) {
+        $stmt = $this->pdo->prepare("UPDATE USERS SET USERNAME = :username, EMAIL = :email WHERE USER_ID = :id");
+        $stmt->execute([
+            ":id" => $id,
+            ":username" => $username,
+            ":email" => $email
+        ]);
+    }
+
+    function updatePassword($id, $newPassword) {
+        $stmt = $this->pdo->prepare("UPDATE USERS SET PSSWRD = :psswd WHERE USER_ID = :id");
+        $stmt->execute([
+            ":id" => $id,
+            ":psswd" => password_hash($newPassword, CRYPT_SHA256)
+        ]);
+    }
 }
