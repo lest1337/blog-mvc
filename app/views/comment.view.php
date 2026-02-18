@@ -7,7 +7,7 @@
                  data-comment-id="<?= $comment["COMMENT_ID"] ?>" 
                  data-user-id="<?= $comment["USER_ID"] ?>"
                  data-post-id="<?= $comment["POST_ID"] ?>"
-                 onclick="showCommentMenu(event, <?= $comment["COMMENT_ID"] ?>, <?= $comment["POST_ID"] ?>, '<?= htmlspecialchars(addslashes($comment["CONTENT"])) ?>')">
+                 oncontextmenu="showCommentMenu(event, <?= $comment["COMMENT_ID"] ?>, <?= $comment["POST_ID"] ?>, '<?= htmlspecialchars(addslashes($comment["CONTENT"])) ?>')">
                 <strong><?= htmlspecialchars($comment["USERNAME"]) ?></strong>
                 <p><?= htmlspecialchars($comment["CONTENT"]) ?></p>
             </div>
@@ -62,6 +62,7 @@ var currentCommentId = null;
 var currentPostId = null;
 
 function showCommentMenu(e, commentId, postId, content) {
+    e.preventDefault();
     e.stopPropagation();
     currentCommentId = commentId;
     currentPostId = postId;
