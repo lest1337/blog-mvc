@@ -39,8 +39,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $error = "Veuillez remplir tous les champs";
         } elseif ($newPassword !== $confirmPassword) {
             $error = "Les mots de passe ne correspondent pas";
-        } elseif (strlen($newPassword) < 6) {
-            $error = "Le mot de passe doit contenir au moins 6 caractères";
+        } elseif (strlen($newPassword) < 12) {
+            $error = "Le mot de passe doit contenir au moins 12 caractères";
+        } elseif (!preg_match("/[A-Z]/", $newPassword)) {
+            $error = "Le mot de passe doit contenir au moins une majuscule";
+        } elseif (!preg_match("/[a-z]/", $newPassword)) {
+            $error = "Le mot de passe doit contenir au moins une minuscule";
+        } elseif (!preg_match("/[0-9]/", $newPassword)) {
+            $error = "Le mot de passe doit contenir au moins un chiffre";
+        } elseif (!preg_match("/[!@#$%^&*()_+\-=\[\]{};':\"\\\\|,.<>\/?]/", $newPassword)) {
+            $error = "Le mot de passe doit contenir au moins un caractère spécial";
         } else {
             $user = $userModel->getUserById($_SESSION["userId"]);
             if (password_verify($currentPassword, $user["PSSWRD"])) {

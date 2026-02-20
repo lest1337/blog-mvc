@@ -15,6 +15,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     if (empty($username) || empty($email) || empty($password)) {
         $error = "Veuillez remplir tous les champs";
+    } elseif (strlen($password) < 12) {
+        $error = "Le mot de passe doit contenir au moins 12 caractères";
+    } elseif (!preg_match("/[A-Z]/", $password)) {
+        $error = "Le mot de passe doit contenir au moins une majuscule";
+    } elseif (!preg_match("/[a-z]/", $password)) {
+        $error = "Le mot de passe doit contenir au moins une minuscule";
+    } elseif (!preg_match("/[0-9]/", $password)) {
+        $error = "Le mot de passe doit contenir au moins un chiffre";
+    } elseif (!preg_match("/[!@#$%^&*()_+\-=\[\]{};':\"\\\\|,.<>\/?]/", $password)) {
+        $error = "Le mot de passe doit contenir au moins un caractère spécial";
     } else {
         $userModel = new Utilisateur();
         $existingUser = $userModel->getUserByMail($email);
