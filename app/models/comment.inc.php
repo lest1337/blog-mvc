@@ -47,6 +47,14 @@ class Comment {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    function getCommentsPaginated($limit = 20, $offset = 0) {
+        $stmt = $this->pdo->prepare("SELECT c.COMMENT_ID, c.CONTENT, c.USER_ID, c.POST_ID, u.USERNAME, p.TITLE as post_title FROM COMMENTS c JOIN USERS u ON c.USER_ID = u.USER_ID JOIN POSTS p ON c.POST_ID = p.POST_ID ORDER BY COMMENT_ID DESC LIMIT :limit OFFSET :offset");
+        $stmt->bindValue(":limit", $limit, PDO::PARAM_INT);
+        $stmt->bindValue(":offset", $offset, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
     function deleteCommentById($commentId) {
         $stmt = $this->pdo->prepare("DELETE FROM COMMENTS WHERE COMMENT_ID = :commentId");
         $stmt->execute([":commentId" => $commentId]);

@@ -67,4 +67,12 @@ class Utilisateur {
         $stmt = $this->pdo->query("SELECT COUNT(*) as count FROM USERS");
         return $stmt->fetch(PDO::FETCH_ASSOC)["count"];
     }
+
+    function getUsersPaginated($limit = 20, $offset = 0) {
+        $stmt = $this->pdo->prepare("SELECT USER_ID, USERNAME, EMAIL, IS_ADMIN FROM USERS ORDER BY USER_ID LIMIT :limit OFFSET :offset");
+        $stmt->bindValue(":limit", $limit, PDO::PARAM_INT);
+        $stmt->bindValue(":offset", $offset, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }
