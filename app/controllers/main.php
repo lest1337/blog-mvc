@@ -9,7 +9,8 @@ function rout($action) {
         "search" => "search.php",
         "edit_comment" => "edit_comment.php",
         "delete_comment" => "delete_comment.php",
-        "profil" => "profil.php"
+        "profil" => "profil.php",
+        "admin" => "admin.php"
     );
 
     if (array_key_exists($action, $actions)) {

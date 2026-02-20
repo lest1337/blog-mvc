@@ -1,3 +1,12 @@
+-- USERS
+insert into USERS (USERNAME, EMAIL, PSSWRD) values
+('admin', 'admin@test.com', '$2y$10$abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWX'),
+('Alice', 'alice@test.com', '$2y$10$abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWX'),
+('Bob', 'bob@test.com', '$2y$10$abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWX'),
+('Charlie', 'charlie@test.com', '$2y$10$abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWX'),
+('Diana', 'diana@test.com', '$2y$10$abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWX'),
+('Eve', 'eve@test.com', '$2y$10$abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWX');
+
 -- POSTS (longer 2–3 line content)
 insert into POSTS (TITLE, CONTENT) values
 ('Learning SQL Basics',

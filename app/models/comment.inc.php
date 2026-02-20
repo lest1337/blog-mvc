@@ -41,4 +41,14 @@ class Comment {
         $stmt->execute([":commentId" => $commentId]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
+
+    function getAllComments() {
+        $stmt = $this->pdo->query("SELECT c.COMMENT_ID, c.CONTENT, c.USER_ID, c.POST_ID, c.POST_ID as post_title, u.USERNAME, p.TITLE as post_title FROM COMMENTS c JOIN USERS u ON c.USER_ID = u.USER_ID JOIN POSTS p ON c.POST_ID = p.POST_ID ORDER BY COMMENT_ID DESC");
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    function deleteCommentById($commentId) {
+        $stmt = $this->pdo->prepare("DELETE FROM COMMENTS WHERE COMMENT_ID = :commentId");
+        $stmt->execute([":commentId" => $commentId]);
+    }
 }

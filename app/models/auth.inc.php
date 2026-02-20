@@ -14,6 +14,17 @@ function isLoggedOn()
     return $res;
 }
 
+function isAdmin() {
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
+
+    if (isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"] == 1) {
+        return true;
+    }
+    return false;
+}
+
 function logout()
 {
     if (session_status() === PHP_SESSION_NONE) {

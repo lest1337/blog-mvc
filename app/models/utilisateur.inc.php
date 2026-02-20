@@ -21,21 +21,21 @@ class Utilisateur {
     }
 
     function getUser($id) {
-        $stmt = $this->pdo->prepare("SELECT USER_ID, USERNAME, EMAIL FROM USERS WHERE USER_ID = :id");
+        $stmt = $this->pdo->prepare("SELECT USER_ID, USERNAME, EMAIL, IS_ADMIN FROM USERS WHERE USER_ID = :id");
         $stmt->execute([":id" => $id]);
 
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
     function getUserByMail($email) {
-        $stmt = $this->pdo->prepare("SELECT USER_ID, USERNAME, EMAIL, PSSWRD FROM USERS WHERE EMAIL = :email");
+        $stmt = $this->pdo->prepare("SELECT USER_ID, USERNAME, EMAIL, PSSWRD, IS_ADMIN FROM USERS WHERE EMAIL = :email");
         $stmt->execute([":email" => $email]);
 
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
     function getUserById($id) {
-        $stmt = $this->pdo->prepare("SELECT USER_ID, USERNAME, EMAIL FROM USERS WHERE USER_ID = :id");
+        $stmt = $this->pdo->prepare("SELECT USER_ID, USERNAME, EMAIL, IS_ADMIN FROM USERS WHERE USER_ID = :id");
         $stmt->execute([":id" => $id]);
 
         return $stmt->fetch(PDO::FETCH_ASSOC);
@@ -56,5 +56,15 @@ class Utilisateur {
             ":id" => $id,
             ":psswd" => password_hash($newPassword, CRYPT_SHA256)
         ]);
+    }
+
+    function getAllUsers() {
+        $stmt = $this->pdo->query("SELECT USER_ID, USERNAME, EMAIL, IS_ADMIN FROM USERS ORDER BY USER_ID");
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    function getUserCount() {
+        $stmt = $this->pdo->query("SELECT COUNT(*) as count FROM USERS");
+        return $stmt->fetch(PDO::FETCH_ASSOC)["count"];
     }
 }

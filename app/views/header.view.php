@@ -6,6 +6,7 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 
 $loggedIn = isLoggedOn();
+$isAdmin = isAdmin();
 ?>
 <head>
     <link rel="stylesheet" href="assets/css/main.css">
@@ -29,6 +30,9 @@ $loggedIn = isLoggedOn();
             <li><a href="./?action=register">Register</a></li>
             <li><a href="./?action=login">Log In</a></li>
             <?php else: ?>
+            <?php if ($isAdmin): ?>
+            <li><a href="./?action=admin">Admin</a></li>
+            <?php endif; ?>
             <li><a href="./?action=profil">Profil</a></li>
             <li><a href="./?action=logout">Log Out (<?= htmlspecialchars($_SESSION["username"] ?? "") ?>)</a></li>
             <?php endif; ?>

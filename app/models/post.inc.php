@@ -32,4 +32,14 @@ class Post {
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    function getPostCount() {
+        $stmt = $this->pdo->query("SELECT COUNT(*) as count FROM POSTS");
+        return $stmt->fetch(PDO::FETCH_ASSOC)["count"];
+    }
+
+    function getCommentCount() {
+        $stmt = $this->pdo->query("SELECT COUNT(*) as count FROM COMMENTS");
+        return $stmt->fetch(PDO::FETCH_ASSOC)["count"];
+    }
 }
