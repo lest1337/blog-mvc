@@ -2,6 +2,7 @@
 require_once "app/models/comment.inc.php";
 require_once "app/models/utilisateur.inc.php";
 require_once "app/models/auth.inc.php";
+require_once "app/models/logger.inc.php";
 
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
@@ -18,9 +19,11 @@ if ($loggedIn && $_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["comment_
     $commentContent = $_POST["comment_content"];
     $postId = $_GET["id"];
     $userId = $_SESSION["userId"];
+    $username = $_SESSION["username"] ?? "-";
 
     if (!empty(trim($commentContent))) {
         $commentModel->addComment($postId, $userId, $commentContent);
+        Logger::log("COMMENT_CREATED", ["post_id" => $postId, "user_id" => $userId, "username" => $username]);
         header("Location: index.php?action=post&id=" . $postId);
         exit;
     } else {

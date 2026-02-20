@@ -1,6 +1,7 @@
 <?php
 require_once "app/models/utilisateur.inc.php";
 require_once "app/models/auth.inc.php";
+require_once "app/models/logger.inc.php";
 
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
@@ -24,9 +25,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $_SESSION["username"] = $user["USERNAME"];
             $_SESSION["isAdmin"] = $user["IS_ADMIN"] ?? 0;
             
+            Logger::log("LOGIN_SUCCESS", ["email" => $email, "user_id" => $user["USER_ID"]]);
+            
             header("Location: index.php");
             exit;
         } else {
+            Logger::log("LOGIN_FAILED", ["email" => $email]);
             $error = "Email ou mot de passe incorrect";
         }
     }

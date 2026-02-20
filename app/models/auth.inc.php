@@ -1,4 +1,5 @@
 <?php
+require_once "app/models/logger.inc.php";
 
 function isLoggedOn()
 {
@@ -29,6 +30,13 @@ function logout()
 {
     if (session_status() === PHP_SESSION_NONE) {
         session_start();
+    }
+
+    $userId = $_SESSION["userId"] ?? null;
+    $username = $_SESSION["username"] ?? "-";
+    
+    if ($userId) {
+        Logger::log("LOGOUT", ["user_id" => $userId, "username" => $username]);
     }
 
     session_unset();

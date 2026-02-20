@@ -1,6 +1,7 @@
 <?php
 require_once "app/models/utilisateur.inc.php";
 require_once "app/models/auth.inc.php";
+require_once "app/models/logger.inc.php";
 
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
@@ -28,6 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $_SESSION["username"] = $username;
             $_SESSION["email"] = $email;
             $user = $userModel->getUser($_SESSION["userId"]);
+            Logger::log("PROFILE_UPDATED", ["user_id" => $_SESSION["userId"], "username" => $username]);
             $success = "Profil mis à jour avec succès";
         }
     } elseif (isset($_POST["update_password"])) {
@@ -53,8 +55,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $user = $userModel->getUserById($_SESSION["userId"]);
             if (password_verify($currentPassword, $user["PSSWRD"])) {
                 $userModel->updatePassword($_SESSION["userId"], $newPassword);
+                Logger::log("PASSWORD_CHANGED", ["user_id" => $_SESSION["userId"]]);
                 $success = "Mot de passe mis à jour avec succès";
             } else {
+                Logger::log("PASSWORD_CHANGE_FAILED", ["user_id" => $_SESSION["userId"], "reason" => "wrong_current_password"]);
                 $error = "Mot de passe actuel incorrect";
             }
         }

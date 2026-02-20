@@ -3,6 +3,7 @@ require_once "app/models/utilisateur.inc.php";
 require_once "app/models/post.inc.php";
 require_once "app/models/comment.inc.php";
 require_once "app/models/auth.inc.php";
+require_once "app/models/logger.inc.php";
 
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
@@ -21,6 +22,8 @@ if (!isAdmin()) {
 $userModel = new Utilisateur();
 $postModel = new Post();
 $commentModel = new Comment();
+
+$adminUsername = $_SESSION["username"] ?? "admin";
 
 $stats = [
     "users" => $userModel->getUserCount(),
@@ -81,6 +84,7 @@ if ($activeTab === "posts") {
 if (isset($_GET["delete_comment"])) {
     $commentId = $_GET["delete_comment"];
     $commentModel->deleteCommentById($commentId);
+    Logger::log("ADMIN_COMMENT_DELETED", ["comment_id" => $commentId, "by" => $adminUsername]);
     header("Location: index.php?action=admin" . ($activeTab !== "posts" ? "&tab=" . $activeTab : ""));
     exit;
 }
@@ -88,6 +92,7 @@ if (isset($_GET["delete_comment"])) {
 if (isset($_GET["delete_post"])) {
     $postId = $_GET["delete_post"];
     $postModel->deletePost($postId);
+    Logger::log("ADMIN_POST_DELETED", ["post_id" => $postId, "by" => $adminUsername]);
     header("Location: index.php?action=admin");
     exit;
 }
@@ -98,6 +103,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["create_post"])) {
     
     if (!empty($title) && !empty($content)) {
         $postModel->createPost($title, $content);
+        Logger::log("ADMIN_POST_CREATED", ["title" => $title, "by" => $adminUsername]);
         header("Location: index.php?action=admin");
         exit;
     }

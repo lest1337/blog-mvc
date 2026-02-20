@@ -1,5 +1,6 @@
 <?php
 require_once "app/models/utilisateur.inc.php";
+require_once "app/models/logger.inc.php";
 
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
@@ -30,9 +31,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $existingUser = $userModel->getUserByMail($email);
         
         if ($existingUser) {
+            Logger::log("REGISTER_FAILED", ["email" => $email, "reason" => "email_exists"]);
             $error = "Un compte avec cet email existe déjà";
         } else {
             $userModel->addUser($username, $email, $password);
+            Logger::log("REGISTER_SUCCESS", ["email" => $email, "username" => $username]);
             $success = "Compte créé avec succès! Vous pouvez maintenant vous connecter.";
         }
     }
