@@ -56,7 +56,30 @@
             <button type="submit" id="submit-btn" disabled>Changer le mot de passe</button>
         </form>
     </div>
+    
+    <?php if (!$user["IS_ADMIN"]): ?>
+    <div class="profile-section danger-section">
+        <h2>Supprimer mon compte</h2>
+        <p class="danger-warning">Cette action est irréversible. Tous vos commentaires seront supprimés.</p>
+        <form method="post" id="delete-form">
+            <input type="hidden" name="delete_account" value="1">
+            <div class="form-group">
+                <label for="confirm_phrase">Tapez "SUPPRIMER MON COMPTE" pour confirmer</label>
+                <input type="text" id="confirm_phrase" name="confirm_phrase" required oninput="checkDeletePhrase()">
+            </div>
+            <button type="submit" id="delete-btn" class="btn-danger" disabled>Supprimer mon compte</button>
+        </form>
+    </div>
+    <?php endif; ?>
 </div>
+
+<script>
+function checkDeletePhrase() {
+    const phrase = document.getElementById('confirm_phrase').value;
+    const btn = document.getElementById('delete-btn');
+    btn.disabled = phrase !== 'SUPPRIMER MON COMPTE';
+}
+</script>
 
 <style>
 #profil {
@@ -155,6 +178,29 @@
     opacity: 0.5;
     cursor: not-allowed;
 }
+
+.danger-section {
+    border-color: #7f1d1d;
+}
+
+.danger-section h2 {
+    color: #ef4444;
+}
+
+.danger-warning {
+    color: #f87171;
+    font-size: 12px;
+    margin-bottom: 16px;
+}
+
+.btn-danger {
+    background-color: #dc2626 !important;
+}
+
+.btn-danger:hover {
+    background-color: #b91c1c !important;
+}
+
 .password-strength {
     margin: 8px 0;
 }

@@ -97,6 +97,28 @@ if (isset($_GET["delete_post"])) {
     exit;
 }
 
+if (isset($_GET["restrict_user"])) {
+    $userId = $_GET["restrict_user"];
+    $user = $userModel->getUserById($userId);
+    if ($user && !$user["IS_ADMIN"]) {
+        $userModel->restrictUser($userId);
+        Logger::log("ADMIN_USER_RESTRICTED", ["user_id" => $userId, "username" => $user["USERNAME"], "by" => $adminUsername]);
+    }
+    header("Location: index.php?action=admin&tab=users");
+    exit;
+}
+
+if (isset($_GET["unrestrict_user"])) {
+    $userId = $_GET["unrestrict_user"];
+    $user = $userModel->getUserById($userId);
+    if ($user) {
+        $userModel->unrestrictUser($userId);
+        Logger::log("ADMIN_USER_UNRESTRICTED", ["user_id" => $userId, "username" => $user["USERNAME"], "by" => $adminUsername]);
+    }
+    header("Location: index.php?action=admin&tab=users");
+    exit;
+}
+
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["create_post"])) {
     $title = $_POST["title"] ?? "";
     $content = $_POST["content"] ?? "";

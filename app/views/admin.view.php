@@ -97,6 +97,8 @@
                         <th>Nom</th>
                         <th>Email</th>
                         <th>Admin</th>
+                        <th>Statut</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -106,6 +108,16 @@
                             <td><?= htmlspecialchars($user["USERNAME"]) ?></td>
                             <td><?= htmlspecialchars($user["EMAIL"]) ?></td>
                             <td><?= $user["IS_ADMIN"] ? "Oui" : "Non" ?></td>
+                            <td><?= isset($user["IS_RESTRICTED"]) && $user["IS_RESTRICTED"] ? "Restreint" : "Normal" ?></td>
+                            <td>
+                                <?php if (!$user["IS_ADMIN"]): ?>
+                                    <?php if (isset($user["IS_RESTRICTED"]) && $user["IS_RESTRICTED"]): ?>
+                                        <a href="index.php?action=admin&tab=users&unrestrict_user=<?= $user["USER_ID"] ?>" class="btn-action">Lever restriction</a>
+                                    <?php else: ?>
+                                        <a href="index.php?action=admin&tab=users&restrict_user=<?= $user["USER_ID"] ?>" class="btn-restrict" onclick="return confirm('Restreindre cet utilisateur? Il ne pourra plus commenter.')">Restreindre</a>
+                                    <?php endif; ?>
+                                <?php endif; ?>
+                            </td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
@@ -401,6 +413,27 @@ document.getElementById('admin-search').addEventListener('keypress', function(e)
 }
 
 .btn-delete:hover {
+    text-decoration: underline;
+}
+
+.btn-action, .btn-restrict {
+    font-size: 11px;
+    margin-right: 8px;
+}
+
+.btn-restrict {
+    color: #f97316;
+}
+
+.btn-restrict:hover {
+    text-decoration: underline;
+}
+
+.btn-action {
+    color: var(--success);
+}
+
+.btn-action:hover {
     text-decoration: underline;
 }
 

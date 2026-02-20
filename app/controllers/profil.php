@@ -62,6 +62,26 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 $error = "Mot de passe actuel incorrect";
             }
         }
+    } elseif (isset($_POST["delete_account"])) {
+        $confirmPhrase = $_POST["confirm_phrase"] ?? "";
+        $expectedPhrase = "SUPPRIMER MON COMPTE";
+        
+        if ($confirmPhrase !== $expectedPhrase) {
+            $error = "La phrase de confirmation est incorrecte";
+        } else {
+            $userId = $_SESSION["userId"];
+            $username = $_SESSION["username"];
+            
+            Logger::log("ACCOUNT_DELETED", ["user_id" => $userId, "username" => $username]);
+            
+            $userModel->deleteUser($userId);
+            
+            session_unset();
+            session_destroy();
+            
+            header("Location: index.php");
+            exit;
+        }
     }
 }
 

@@ -7,7 +7,8 @@ create table if not exists USERS (
     USERNAME varchar(32),
     EMAIL varchar(64),
     PSSWRD varchar(128),
-    IS_ADMIN tinyint(1) default 0
+    IS_ADMIN tinyint(1) default 0,
+    IS_RESTRICTED tinyint(1) default 0
 );
 
 create table if not exists POSTS (

@@ -43,16 +43,22 @@
 </div>
 
 <?php if ($loggedIn): ?>
-<div id="addComment">
-    <h3>Ajouter un commentaire</h3>
-    <?php if (isset($error)): ?>
-        <p style="color: var(--error);"><?= htmlspecialchars($error) ?></p>
+    <?php if ($isRestricted): ?>
+    <div id="addComment">
+        <p style="color: var(--error);">Votre compte est restreint. Vous ne pouvez pas commenter.</p>
+    </div>
+    <?php else: ?>
+    <div id="addComment">
+        <h3>Ajouter un commentaire</h3>
+        <?php if (isset($error)): ?>
+            <p style="color: var(--error);"><?= htmlspecialchars($error) ?></p>
+        <?php endif; ?>
+        <form method="post">
+            <input type="text" name="comment_content" placeholder="Ecrivez votre commentaire ici" required>
+            <button type="submit">Envoyer</button>
+        </form>
+    </div>
     <?php endif; ?>
-    <form method="post">
-        <input type="text" name="comment_content" placeholder="Ecrivez votre commentaire ici" required>
-        <button type="submit">Envoyer</button>
-    </form>
-</div>
 <?php else: ?>
 <p><a href="index.php?action=login">Connectez-vous</a> pour laisser un commentaire.</p>
 <?php endif; ?>
